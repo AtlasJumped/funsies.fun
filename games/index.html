@@ -91,8 +91,23 @@
   <div class="card">
     <h3>Coming: the Funzies Fun app</h3>
     <p>Open the app with your family or friends. Choose where you'll play: phones, a computer, the TV, or a mix. Turn on the microphone and everyone talks about the game you want. A first draft arrives in less than ten minutes, on everyone's phone. Try it, say what you like and don't, and it builds the next draft. Play when it feels right, and save it for next time. Role-playing games, trivia, high-score games, and turn-by-turn games that text you when it's your turn.</p>
-    <p>Always free, forever. No ads, never. Part of the elevat.ing family of games.</p>
+    <p><b>We don't save your voice.</b> We convert your voice to text, and that text becomes the instructions for the AI.</p>
+    <p>Always free, forever. No ads, never. Part of the elevat.ing family of games. <a href="https://elevat.ing/">More about us</a></p>
     <p><span class="tag">Not built yet</span></p>
+  </div>
+
+  <div class="card" id="app-preview" aria-labelledby="ap-h">
+    <h3 id="ap-h">A preview of how the app will build your game</h3>
+    <p class="small">A walk-through with a made-up game. Nothing is built or sent. The real app needs a server we have not set up yet.</p>
+    <ol class="ap-steps">
+      <li class="ap-s" data-s="1"><b>Processing</b><span>First we listen and plan. "A trivia race about our family, with a bonus round for Grandma's recipes."</span></li>
+      <li class="ap-s" data-s="2"><b><span aria-hidden="true">&#128119;</span> Building</b><span>Our little builder gets to work. Estimated time: <b>10 to 20 minutes</b>. The low number is our real estimate, so we usually finish early.</span></li>
+      <li class="ap-s" data-s="3"><b>Ready</b><span>We finished two minutes ahead. (When we run late, we say so: "Two minutes behind. Sorry about that. Here's what took so long.")</span></li>
+      <li class="ap-s" data-s="4"><b>Share it with everyone</b><span>The game writes its own description. Then pick one:</span>
+        <span class="ap-two"><button type="button" class="btn" disabled>Submit to the community anonymously</button><button type="button" class="btn primary" disabled>Submit to the community</button></span>
+        <span class="small">Submit to the community lists the friends who built it and what each person added: who started it and who added what.</span></li>
+    </ol>
+    <p><button type="button" class="btn primary" id="ap-play">Play the preview</button> <span id="ap-st" class="small" role="status" aria-live="polite"></span></p>
   </div>
 </section>
 </main>
@@ -103,5 +118,19 @@
     <p><a href="../">funsies.fun</a> &middot; <a href="https://elevat.ing">elevat.ing</a></p>
   </div>
 </footer>
+<script>
+(function () {
+  var b = document.getElementById("ap-play"), st = document.getElementById("ap-st"), steps = document.querySelectorAll("#app-preview .ap-s"), t = [];
+  if (!b) return;
+  var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function show(n) { for (var i = 0; i < steps.length; i++) steps[i].classList.toggle("on", i < n); }
+  b.addEventListener("click", function () {
+    t.forEach(clearTimeout); t = []; show(0);
+    var lines = ["Processing...", "Building... about 10 to 20 minutes (sped up for this preview)", "Ready: we finished two minutes ahead.", "Pick how to share it."];
+    lines.forEach(function (l, i) { t.push(setTimeout(function () { show(i + 1); st.textContent = l; }, reduce ? 0 : i * 1600)); });
+  });
+  show(4);
+})();
+</script>
 </body>
 </html>
