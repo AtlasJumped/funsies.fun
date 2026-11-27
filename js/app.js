@@ -1,6 +1,6 @@
 (function () {
   "use strict";
-  var SITES = ["claudebomb.com", "hmrfamily.life", "reactionapp.life", "endgame.life", "chronomath.ai", "hmrphysics.life", "hmrmath.life", "hmrscience.life", "hmruniverse.life", "hmrfascia.life", "hmrlanguage.life", "personaldash.life", "workdash.life"];
+  var SITES = ["elevat.ing", "hmrfamily.life", "personaldash.life", "claudebomb.com", "endgame.life", "ilovedogs.dog", "funsies.fun", "reactionapp.life", "workdash.life"];  // same as the hmrfamily.life footer (audit 2026-11-27)
   var EFFECTS = [["float","Float"],["tilt","Tilt"],["drop","Drop"],["magnet","Magnet"],["balls","Balls"],["bubbles","Bubbles"],["tensegrity","Tensegrity toy"],["lightning","Lightning"],["missiles","Missiles"],["rocket","Rocket"],["burn","Burn"],["dragons","Dragons"],["drones","Drones"],["meteors","Meteors"],["ufo","UFO"],["sea","Sea"],["bees","Bees"],["melt","Melt"],["spartans","Marchers"],["ants","Ants"],["blackhole","Black hole"],["earthquake","Earthquake"],["tornado","Tornado"],["snow","Snow"],["confetti","Confetti"],["fireworks","Fireworks"],["paint","Paint"],["flip","Flip"],["words","Words"],["laser","Laser"],["rubber","Rubber"],["wreck","Wreck"],["slime","Slime"],["disco","Disco"]];
   function el(t, a, kids) {
     var e = document.createElement(t), k;
